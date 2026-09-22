@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:18
+    container_name: postgres-istm-db
+    ports:
+      - "5430:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: itsmapiDB
+    volumes:
+      - postgres_data:/var/lib/postgresql
+
+volumes:
+  postgres_data:
