@@ -1,5 +1,6 @@
 package com.viratech.itsm_api.domain;
 
+import com.viratech.itsm_api.enums.Status;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,10 +24,12 @@ public class TicketHistory {
     private Ticket ticket;
 
     @Column(name = "old_status")
-    private String oldStatus;
+    @Enumerated(EnumType.STRING)
+    private Status oldStatus;
 
     @Column(name = "new_status")
-    private String newStatus;
+    @Enumerated(EnumType.STRING)
+    private Status newStatus;
 
     @Column(name = "change_at")
     private LocalDateTime changeAt;

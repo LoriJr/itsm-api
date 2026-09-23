@@ -1,5 +1,8 @@
 package com.viratech.itsm_api.domain;
 
+import com.viratech.itsm_api.enums.Category;
+import com.viratech.itsm_api.enums.Priority;
+import com.viratech.itsm_api.enums.Status;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,13 +28,16 @@ public class Ticket {
     private String description;
 
     @Column(name = "status")
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
     @Column(name = "priority")
-    private String priority;
+    @Enumerated(EnumType.STRING)
+    private Priority priority;
 
     @Column(name = "category")
-    private String category;
+    @Enumerated(EnumType.STRING)
+    private Category category;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id", nullable = false)
