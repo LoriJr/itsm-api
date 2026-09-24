@@ -1,4 +1,10 @@
 package com.viratech.itsm_api.repository;
 
-public interface CustomerRepository {
+import com.viratech.itsm_api.domain.Customer;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CustomerRepository extends JpaRepository<Customer, Long> {
+
+    boolean existsByEmail(String email);
+    boolean existsByEmailAndIdNot(String email, Long id);
 }
