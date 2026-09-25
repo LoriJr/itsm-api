@@ -1,10 +1,9 @@
-package com.viratech.itsm_api.service;
+package com.viratech.itsm_api.customer.application;
 
-import com.viratech.itsm_api.domain.Customer;
-import com.viratech.itsm_api.dto.CustomerRequest;
-import com.viratech.itsm_api.dto.CustomerResponse;
-import com.viratech.itsm_api.mapper.CustomerMapper;
-import com.viratech.itsm_api.repository.CustomerRepository;
+import com.viratech.itsm_api.customer.domain.Customer;
+import com.viratech.itsm_api.customer.application.dto.CustomerRequest;
+import com.viratech.itsm_api.customer.application.dto.CustomerResponse;
+import com.viratech.itsm_api.customer.domain.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

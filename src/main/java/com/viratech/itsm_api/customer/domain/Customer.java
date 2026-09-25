@@ -1,4 +1,4 @@
-package com.viratech.itsm_api.domain;
+package com.viratech.itsm_api.customer.domain;
 
 import jakarta.persistence.*;
 import lombok.*;

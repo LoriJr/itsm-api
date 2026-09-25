@@ -1,8 +1,8 @@
-package com.viratech.itsm_api.mapper;
+package com.viratech.itsm_api.customer.application;
 
-import com.viratech.itsm_api.domain.Customer;
-import com.viratech.itsm_api.dto.CustomerRequest;
-import com.viratech.itsm_api.dto.CustomerResponse;
+import com.viratech.itsm_api.customer.domain.Customer;
+import com.viratech.itsm_api.customer.application.dto.CustomerRequest;
+import com.viratech.itsm_api.customer.application.dto.CustomerResponse;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -1,5 +1,7 @@
 package com.viratech.itsm_api.dto;
 
+import com.viratech.itsm_api.customer.application.dto.CustomerResponse;
+
 import java.time.LocalDateTime;
 
 public record TicketResponse(

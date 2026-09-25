@@ -1,5 +1,6 @@
 package com.viratech.itsm_api.domain;
 
+import com.viratech.itsm_api.customer.domain.Customer;
 import com.viratech.itsm_api.enums.Category;
 import com.viratech.itsm_api.enums.Priority;
 import com.viratech.itsm_api.enums.Status;
