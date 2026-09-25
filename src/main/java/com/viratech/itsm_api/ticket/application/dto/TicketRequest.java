@@ -1,4 +1,4 @@
-package com.viratech.itsm_api.dto;
+package com.viratech.itsm_api.ticket.application.dto;
 
 import com.viratech.itsm_api.customer.application.dto.CustomerRequest;
 

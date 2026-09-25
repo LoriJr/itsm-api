@@ -1,4 +1,4 @@
-package com.viratech.itsm_api.domain;
+package com.viratech.itsm_api.ticket.domain;
 
 import com.viratech.itsm_api.customer.domain.Customer;
 import com.viratech.itsm_api.enums.Category;

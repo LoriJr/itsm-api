@@ -5,16 +5,23 @@ import com.viratech.itsm_api.customer.application.dto.CustomerRequest;
 import com.viratech.itsm_api.customer.application.dto.CustomerResponse;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Component
 public class CustomerMapper {
 
     public CustomerResponse toDto(Customer entity){
+
+        LocalDateTime createdAt = entity.getCreatedAt() != null
+                ? entity.getCreatedAt()
+                : LocalDateTime.now();
+
         return new CustomerResponse(
                 entity.getId(),
                 entity.getName(),
                 entity.getEmail(),
                 entity.getPhone(),
-                entity.getCreatedAt()
+                createdAt
         );
     }
 

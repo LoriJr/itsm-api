@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: itsm-api
+  datasource:
+    url: jdbc:postgresql://localhost:5430/itsmapiDB
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: 9090

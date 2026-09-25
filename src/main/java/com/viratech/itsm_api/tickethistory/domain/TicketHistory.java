@@ -1,6 +1,7 @@
-package com.viratech.itsm_api.domain;
+package com.viratech.itsm_api.tickethistory.domain;
 
 import com.viratech.itsm_api.enums.Status;
+import com.viratech.itsm_api.ticket.domain.Ticket;
 import jakarta.persistence.*;
 import lombok.*;
 

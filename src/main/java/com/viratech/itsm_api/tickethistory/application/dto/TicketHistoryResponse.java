@@ -1,4 +1,6 @@
-package com.viratech.itsm_api.dto;
+package com.viratech.itsm_api.tickethistory.application.dto;
+
+import com.viratech.itsm_api.ticket.application.dto.TicketResponse;
 
 import java.time.LocalDateTime;
 
