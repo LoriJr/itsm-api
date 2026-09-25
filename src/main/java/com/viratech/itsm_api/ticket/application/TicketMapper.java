@@ -1,0 +1,39 @@
+package com.viratech.itsm_api.ticket.application;
+
+import com.viratech.itsm_api.customer.application.CustomerMapper;
+import com.viratech.itsm_api.ticket.application.dto.TicketRequest;
+import com.viratech.itsm_api.ticket.application.dto.TicketResponse;
+import com.viratech.itsm_api.ticket.domain.Ticket;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
+
+@Component
+@RequiredArgsConstructor
+public class TicketMapper {
+
+    private final CustomerMapper mapper;
+
+    public TicketResponse doDto(Ticket entity){
+        return new TicketResponse(
+                entity.getId(),
+                entity.getTitle(),
+                entity.getDescription(),
+                entity.getStatus(),
+                entity.getPriority(),
+                entity.getCategory(),
+                mapper.toDto(entity.getCustomer()),
+                entity.getCreatedAt(),
+                entity.getUpdateAt()
+        );
+    }
+
+    public Ticket toEntity(TicketRequest request){
+        return Ticket.builder()
+                .title(request.title())
+                .description(request.description())
+                .status(request.status())
+                .priority(request.priority())
+                .category(request.category())
+                .build();
+    }
+}
