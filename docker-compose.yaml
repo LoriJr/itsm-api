@@ -1,7 +1,7 @@
 services:
   postgres:
     image: postgres:18
-    container_name: postgres-istm-db
+    container_name: postgres-itsm-db
     ports:
       - "5430:5432"
     environment:
