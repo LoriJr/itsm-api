@@ -4,6 +4,7 @@ import com.viratech.itsm_api.customer.domain.Customer;
 import com.viratech.itsm_api.customer.application.dto.CustomerRequest;
 import com.viratech.itsm_api.customer.application.dto.CustomerResponse;
 import com.viratech.itsm_api.customer.domain.CustomerRepository;
+import com.viratech.itsm_api.exceptions.ConflictValidation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,7 +20,7 @@ public class CustomerService {
 
         boolean emailExiste = repository.existsByEmail(request.email());
         //TODO criar exceção de conflito
-        if(emailExiste)throw new RuntimeException("This Email is Already registered");
+        if(emailExiste)throw new ConflictValidation("This Email is Already registered");
 
         Customer customer = repository.save(mapper.toEntity(request));
 
@@ -40,7 +41,7 @@ public class CustomerService {
         Customer customer = find(id);
 
         boolean existeEmail = repository.existsByEmailAndIdNot(request.email(), id);
-        if(existeEmail)throw new RuntimeException("This Email is Already registered");
+        if(existeEmail)throw new ConflictValidation("This Email is Already registered");
 
         customer.setName(request.name());
         customer.setEmail(request.email());
