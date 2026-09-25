@@ -7,13 +7,20 @@ import com.viratech.itsm_api.ticket.domain.Ticket;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Component
 @RequiredArgsConstructor
 public class TicketMapper {
 
     private final CustomerMapper mapper;
 
-    public TicketResponse doDto(Ticket entity){
+    public TicketResponse toDto(Ticket entity){
+
+        LocalDateTime createdAt = entity.getCreatedAt() != null
+                ? entity.getCreatedAt()
+                : LocalDateTime.now();
+
         return new TicketResponse(
                 entity.getId(),
                 entity.getTitle(),
@@ -22,7 +29,7 @@ public class TicketMapper {
                 entity.getPriority(),
                 entity.getCategory(),
                 mapper.toDto(entity.getCustomer()),
-                entity.getCreatedAt(),
+                createdAt,
                 entity.getUpdateAt()
         );
     }
