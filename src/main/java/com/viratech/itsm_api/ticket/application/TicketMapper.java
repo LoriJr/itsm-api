@@ -28,7 +28,7 @@ public class TicketMapper {
                 entity.getStatus(),
                 entity.getPriority(),
                 entity.getCategory(),
-                mapper.toDto(entity.getCustomer()),
+                mapper.toDtoTicketResponse(entity.getCustomer()),
                 createdAt,
                 entity.getUpdateAt()
         );
@@ -38,7 +38,6 @@ public class TicketMapper {
         return Ticket.builder()
                 .title(request.title())
                 .description(request.description())
-                .status(request.status())
                 .priority(request.priority())
                 .category(request.category())
                 .build();

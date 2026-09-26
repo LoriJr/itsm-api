@@ -23,17 +23,16 @@ public class TicketService {
 
     public TicketResponse createTicket(TicketRequest request){
 
-        Ticket ticket = ticketRepository.save(ticketMapper.toEntity(request));
-
-        customerRepository.findById(request.customerId())
+        Customer customer = customerRepository.findById(request.customerId())
                 .orElseThrow(()-> new ResourceNotFoundException("Resource Not Found"));
 
+        Ticket ticket = ticketMapper.toEntity(request);
+
         ticket.setStatus(Status.OPEN);
+        ticket.setCustomer(customer);
 
-        return ticketMapper.toDto(ticket);
+        Ticket ticketSaved = ticketRepository.save(ticket);
+
+        return ticketMapper.toDto(ticketSaved);
     }
-
-
-
-
 }

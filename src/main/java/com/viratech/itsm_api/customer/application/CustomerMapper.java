@@ -1,5 +1,6 @@
 package com.viratech.itsm_api.customer.application;
 
+import com.viratech.itsm_api.customer.application.dto.CustomerTicketResponse;
 import com.viratech.itsm_api.customer.domain.Customer;
 import com.viratech.itsm_api.customer.application.dto.CustomerRequest;
 import com.viratech.itsm_api.customer.application.dto.CustomerResponse;
@@ -31,5 +32,13 @@ public class CustomerMapper {
                 .email(request.email())
                 .phone(request.phone())
                 .build();
+    }
+
+    public CustomerTicketResponse toDtoTicketResponse(Customer entity){
+         return new CustomerTicketResponse(
+                entity.getId(),
+                entity.getName(),
+                entity.getEmail()
+        );
     }
 }

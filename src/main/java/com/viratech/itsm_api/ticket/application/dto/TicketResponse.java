@@ -1,6 +1,6 @@
 package com.viratech.itsm_api.ticket.application.dto;
 
-import com.viratech.itsm_api.customer.application.dto.CustomerResponse;
+import com.viratech.itsm_api.customer.application.dto.CustomerTicketResponse;
 import com.viratech.itsm_api.enums.Category;
 import com.viratech.itsm_api.enums.Priority;
 import com.viratech.itsm_api.enums.Status;
@@ -14,7 +14,7 @@ public record TicketResponse(
         Status status,
         Priority priority,
         Category category,
-        CustomerResponse customerResponse,
+        CustomerTicketResponse customerResponse,
         LocalDateTime createdAt,
         LocalDateTime updateAt
 ) {
