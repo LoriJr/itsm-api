@@ -5,6 +5,8 @@ import com.viratech.itsm_api.ticket.domain.TicketRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 @RequiredArgsConstructor
 public class TicketRepositoryImpl implements TicketRepository {
@@ -15,4 +17,10 @@ public class TicketRepositoryImpl implements TicketRepository {
     public Ticket save(Ticket customer) {
         return repository.save(customer);
     }
+
+    @Override
+    public Optional<Ticket> findById(Long id) {
+        return repository.findById(id);
+    }
+
 }

@@ -12,6 +12,8 @@ import com.viratech.itsm_api.ticket.domain.TicketRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class TicketService {
@@ -34,5 +36,15 @@ public class TicketService {
         Ticket ticketSaved = ticketRepository.save(ticket);
 
         return ticketMapper.toDto(ticketSaved);
+    }
+
+    public Optional<TicketResponse> findTicketById(Long id){
+
+        Ticket ticket =  ticketRepository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException("Resource Not Found"));
+
+        TicketResponse response = ticketMapper.toDto(ticket);
+
+        return Optional.of(response);
     }
 }

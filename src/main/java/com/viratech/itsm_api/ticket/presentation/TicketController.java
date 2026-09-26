@@ -7,10 +7,9 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/tickets")
@@ -23,5 +22,11 @@ public class TicketController {
     public ResponseEntity<TicketResponse> createTicket(@Valid @RequestBody TicketRequest request){
         TicketResponse response = service.createTicket(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<TicketResponse>> findTicketById(@PathVariable Long id){
+        Optional<TicketResponse> response = service.findTicketById(id);
+        return ResponseEntity.ok().body(response);
     }
 }
