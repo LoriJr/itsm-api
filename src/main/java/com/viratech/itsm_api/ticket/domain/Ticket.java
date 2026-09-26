@@ -48,5 +48,5 @@ public class Ticket {
     private LocalDateTime createdAt = LocalDateTime.now();
 
     @Column(name = "update_at")
-    private LocalDateTime updateAt;
+    private LocalDateTime updateAt = LocalDateTime.now();;
 }

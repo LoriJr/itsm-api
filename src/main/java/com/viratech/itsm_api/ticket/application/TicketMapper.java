@@ -21,6 +21,10 @@ public class TicketMapper {
                 ? entity.getCreatedAt()
                 : LocalDateTime.now();
 
+        LocalDateTime updatedAt = entity.getUpdateAt() != null
+                ? entity.getUpdateAt()
+                : LocalDateTime.now();
+
         return new TicketResponse(
                 entity.getId(),
                 entity.getTitle(),
@@ -30,7 +34,7 @@ public class TicketMapper {
                 entity.getCategory(),
                 mapper.toDtoTicketResponse(entity.getCustomer()),
                 createdAt,
-                entity.getUpdateAt()
+                updatedAt
         );
     }
 
